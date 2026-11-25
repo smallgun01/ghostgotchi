@@ -1,4 +1,4 @@
-# Tasks — Ghostgotchi
+﻿# Tasks — Ghostgotchi
 
 Sizes are the user's hands-on hours with Kiro doing the typing.
 Phasing: v1 = the ghost talks (F1–F3 + W1). v2 = it longs for you
@@ -14,10 +14,12 @@ Schedule (deadline Sat 2026-12-05 06:00 Taipei; submit 12-03):
   MIT licence, `/.kiro/` from this pack at the root (NOT in
   .gitignore), gadget project skeleton builds. Kiro warm-up.
   Size S (~1 h). _Requirements: 5.1, 5.2, 5.3_
-- [ ] **F2 — Port the Gemini Live transport.** Bring the p1a POC's
-  WebSocket audio streaming into the new project; push-to-talk round
-  trip works end to end on the gadget. Porting a proven path, not
-  research. Disclose the reuse in the submission.
+- [ ] **F2 — Port the Gemini Live transport.** Adapt Grok-Amusant's
+  `fast_voice/gemini.py` into the Ghostgotchi relay; gadget speaks
+  the Kai device protocol (ptt_start / Opus / ptt_end) unchanged;
+  relay holds the Gemini session and API key. Push-to-talk round
+  trip works end to end on the gadget. Disclose Grok-Amusant reuse
+  in the submission.
   Size M (~3–4 h). _Requirements: 1.1, 1.4, 6.2_
 - [ ] **F3 — Ghost persona prompt.** System prompt per design §2 /
   steering/product.md: FR/ES only, in-character, gentle recasting.
@@ -25,23 +27,26 @@ Schedule (deadline Sat 2026-12-05 06:00 Taipei; submit 12-03):
   Size S (~1 h incl. tuning). _Requirements: 1.2, 1.3_
 - [ ] **F4 — Pet state machine.** Longing rises over time, drops on
   conversation; mood thresholds; 10-second minimum for a feeding;
-  invariants from design §3. Syncs with the cloud state service
-  (B1); NVS is the offline cache, not the source of truth.
+  invariants from design §3. Syncs with the relay state store
+  (B1 merged into relay); NVS is the offline cache, not the source
+  of truth.
   Size S–M (~2 h). _Requirements: 2.1, 2.2, 2.3, 2.4_
 - [ ] **F5 — Faces.** Three mood faces + Longing indicator on the
   gadget screen. Pixel art in code, no assets; face changes only on
   confirmed Mood change.
   Size S (~1–2 h). _Requirements: 3.1, 3.2, 3.3_
-- [ ] **W1 — Web shell + token relay.** Mic capture, Gemini Live
-  session via ephemeral-token relay, push-to-talk in the browser.
-  Key never in client code; per-session rate limit.
+- [ ] **W1 — Web twin shell.** Browser connects to the relay via
+  WebSocket (same service as the gadget); mic capture, push-to-talk
+  in the browser. Gemini key lives only on the relay — no
+  ephemeral-token layer. Per-IP/session rate limit on the relay.
   Size M (~3 h). _Requirements: 4.1, 4.2, 4.3_
-- [ ] **B1 — Ghost state API.** Tiny cloud endpoint: get/set Longing
-  + lastFedAt for the ONE shared ghost; per-ghost secret; rate
-  limit. Can live next to the W1 token relay.
+- [ ] **B1 — Ghost state store (in relay).** Add get/set Longing +
+  lastFedAt endpoints to the relay service; per-ghost secret; rate
+  limit. No separate cloud deployment — lives in the same relay
+  process as F2/W1.
   Size S (~1–2 h). _Requirements: 2.1, 2.4_
 - [ ] **W2 — Shared pet logic in web.** Same Longing/Mood machine,
-  reads/writes the shared cloud state (B1); localStorage is only a
+  reads/writes the shared relay state (B1); localStorage is only a
   cache. Same persona prompt.
   Size S (~1–2 h). _Requirements: 2.1, 2.2, 2.3, 4.1_
 - [ ] **W3 — Haunted Tamagotchi UI.** Spooky-cute shell: egg-shaped
@@ -49,7 +54,8 @@ Schedule (deadline Sat 2026-12-05 06:00 Taipei; submit 12-03):
   Size S–M (~2 h). _Requirements: 3.1, 3.2, 4.1_
 - [ ] **S1 — Devpost texts.** English description, "How I used Kiro"
   write-up (one concrete example per feature: specs, steering,
-  hooks, MCP), POC-reuse disclosure. Fluffy drafts, user approves.
+  hooks, MCP), Grok-Amusant reuse disclosure. Fluffy drafts, user
+  approves.
   Size S–M (~2 h). _Requirements: 6.1, 6.2, 6.3_
 - [ ] **S2 — Demo video ≤ 3 min.** Script: ghost cries in French →
   user feeds it a conversation → ghost happy; web twin shown for
