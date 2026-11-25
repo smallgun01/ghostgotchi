@@ -1,0 +1,17 @@
+# PlatformIO
+gadget/.pio/
+gadget/.pioenvs/
+
+# Secrets (never commit)
+gadget/src/secrets.h
+gadget/include/secrets.h
+
+# .kiro/ must NOT be in .gitignore (hackathon rule)
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+*.swp
