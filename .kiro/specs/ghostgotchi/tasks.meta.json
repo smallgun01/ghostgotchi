@@ -22,6 +22,25 @@
         "chatSessionId": "sess_300afbd4-5306-4fdb-92bb-d235d479714c",
         "timestamp": 1795571378955
       }
+    ],
+    "**F2 — Port the Gemini Live transport.** Adapt Grok-Amusant's": [
+      {
+        "executionId": "b2a9dda3-36ce-4854-9126-0c2699b8c4b9",
+        "chatSessionId": "sess_300afbd4-5306-4fdb-92bb-d235d479714c",
+        "timestamp": 1795598807348
+      }
+    ],
+    "**F3 — Ghost persona prompt.** System prompt per design §2 /": [
+      {
+        "executionId": "b2a9dda3-36ce-4854-9126-0c2699b8c4b9",
+        "chatSessionId": "sess_300afbd4-5306-4fdb-92bb-d235d479714c",
+        "timestamp": 1795598812245
+      },
+      {
+        "executionId": "b2a9dda3-36ce-4854-9126-0c2699b8c4b9",
+        "chatSessionId": "sess_300afbd4-5306-4fdb-92bb-d235d479714c",
+        "timestamp": 1795653528016
+      }
     ]
   }
 }

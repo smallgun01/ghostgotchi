@@ -14,14 +14,14 @@ Schedule (deadline Sat 2026-12-05 06:00 Taipei; submit 12-03):
   MIT licence, `/.kiro/` from this pack at the root (NOT in
   .gitignore), gadget project skeleton builds. Kiro warm-up.
   Size S (~1 h). _Requirements: 5.1, 5.2, 5.3_
-- [ ] **F2 — Port the Gemini Live transport.** Adapt Grok-Amusant's
+- [-] **F2 — Port the Gemini Live transport.** Adapt Grok-Amusant's
   `fast_voice/gemini.py` into the Ghostgotchi relay; gadget speaks
   the Kai device protocol (ptt_start / Opus / ptt_end) unchanged;
   relay holds the Gemini session and API key. Push-to-talk round
   trip works end to end on the gadget. Disclose Grok-Amusant reuse
   in the submission.
   Size M (~3–4 h). _Requirements: 1.1, 1.4, 6.2_
-- [ ] **F3 — Ghost persona prompt.** System prompt per design §2 /
+- [x] **F3 — Ghost persona prompt.** System prompt per design §2 /
   steering/product.md: FR/ES only, in-character, gentle recasting.
   Tune until it feels like a pet, not a tutor.
   Size S (~1 h incl. tuning). _Requirements: 1.2, 1.3_
